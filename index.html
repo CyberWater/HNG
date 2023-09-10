@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Page</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-200">
+    <div class="min-h-screen flex items-center justify-center">
+        <div class="bg-white rounded-md p-6 shadow-lg max-w-md mx-auto">
+
+            <h1 class="text-3xl font-bold mb-4 text-center text-black" data-testid="slackUserName">Saliu Mansurat Adejoke</h1>
+            
+            
+            <div class="text-center">
+                <img src="images/profile picture.jpeg" alt="Your Slack Username" class="rounded-full w-32 h-32 mx-auto" data-testid="slackDisplayImage">
+            </div>
+            
+            
+            <p class="mt-4 text-lg text-center text-gray-600" data-testid="currentDayOfTheWeek"></p>
+            
+        
+            <p class="mt-4 text-lg text-center text-gray-600" data-testid="currentUTCTime"></p>
+            
+            
+            <p class="mt-4 text-sm text-center text-gray-500" data-testid="myTrack">Your Track: Frontend</p>
+            
+            
+            <p class="mt-4 text-center">
+                <a href="https://github.com/CyberWater/HNG-stage1" data-testid="githubURL" class="text-blue-500 cursor-pointer hover:underline">GitHub Repository</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        
+        const dayOfWeek = new Date().toLocaleDateString('en-US', { weekday: 'long' });
+        const currentUTCTime = new Date().getTime();
+
+        document.querySelector('[data-testid="currentDayOfTheWeek"]').textContent = `Current Day: ${dayOfWeek}`;
+        document.querySelector('[data-testid="currentUTCTime"]').textContent = `Current UTC Time: ${currentUTCTime}`;
+        
+        
+        document.querySelector('[data-testid="githubURL"]').addEventListener('click', () => {
+            window.location.href = 'https://github.com/CyberWater/HNG-stage1';
+        });
+    </script>
+</body>
+</html>
+
